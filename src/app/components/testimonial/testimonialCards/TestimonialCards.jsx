@@ -13,7 +13,7 @@ const TestimonialCards = ({ testimonial }) => {
                 <div className='flex item-center gap-5'>
                     <div className=''>
                         <Image className='h-14 w-14 rounded-full' src={img} width={320} height={400} alt="image" />
-                 </div>
+                    </div>
                     <div>
                         <p className='text-[#444] text-xl font-bold'>{user_name}</p>
                         <p className='text-[#737373]'>{profession}</p>
@@ -26,7 +26,7 @@ const TestimonialCards = ({ testimonial }) => {
             <div className='flex flex-col'>
                 <p className='text-[#737373] h-[290px] lg:h-[150px] mb-5'>{comment}</p>
                 <p><Rating style={{ maxWidth: 100 }} readOnly halfFillMode='svg' value={rating} /></p>
-                
+
             </div>
         </div>
     );

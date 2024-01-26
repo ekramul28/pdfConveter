@@ -33,7 +33,7 @@ const Testimonial = () => {
             </div>
             <div className="mb-12 flex flex-col items-center justify-center">
                 <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 pb-12 mt-12">
-                    <div className="lg:max-w-6xl max-w-xs mx-auto lg:p-5 relative ">
+                    <div className="lg:max-w-7xl max-w-xs mx-auto lg:p-5 relative ">
                         <Swiper
                             modules={[Navigation, A11y, Autoplay]}
                             spaceBetween={40}
