@@ -8,14 +8,23 @@ import { usePathname } from "next/navigation";
 
 const Services = () => {
     const [services, setServices] = useState([]);
-
     useEffect(() => {
-        fetch("/services.json") // Fetch from the public directory directly
+        fetch('http://localhost:3000/api/services')
             .then((res) => res.json())
             .then((data) => setServices(data))
             .catch((error) => console.error('Error fetching data:', error));
-    }, []);
-    // console.log(services)
+    }, [])
+
+
+
+
+    // useEffect(() => {
+    //     fetch("/services.json") // Fetch from the public directory directly
+    //         .then((res) => res.json())
+    //         .then((data) => setServices(data))
+    //         .catch((error) => console.error('Error fetching data:', error));
+    // }, []);
+    console.log(services)
     const location = usePathname()
     // console.log(location)
     return (

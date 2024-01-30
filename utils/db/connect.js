@@ -1,8 +1,8 @@
 import mongoose from "mongoose"
 
-console.log(process.env.DATABASE_LOCAL)
 let connectionUrl;
 const getConnectionString = () => {
+
     connectionUrl = process.env.DATABASE_LOCAL;
     connectionUrl = connectionUrl.replace(
         "<username>",
@@ -12,6 +12,7 @@ const getConnectionString = () => {
         "<password>",
         process.env.DB_PASSWORD
     );
+    console.log(connectionUrl)
 
     return connectionUrl;
 }
