@@ -3,8 +3,34 @@ import Link from 'next/link';
 import React from 'react';
 
 const Register = () => {
-    const handelForm = () => {
+    const handelForm = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photoURL = form.imgUrl.files[0];
+        const value = { name, email, password, }
+        console.log(value)
 
+        try {
+            const res = await fetch('api/register', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(value)
+            });
+            // console.log(res.ok)
+            if (res.ok) {
+                const form = e.target;
+                form.reset()
+            } else {
+                // console.log(error)
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
     return (
         <div className="hero min-h-screen ">

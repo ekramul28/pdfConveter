@@ -5,16 +5,17 @@ import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 const CardDetails = () => {
+    const { id } = useParams()
+    console.log(id)
     const [services, setServices] = useState([]);
-
     useEffect(() => {
-        fetch("/services.json") // Fetch from the public directory directly
+        fetch(`http://localhost:3000/api/services/${id}`) // Fetch from the public directory directly
             .then((res) => res.json())
             .then((data) => setServices(data))
             .catch((error) => console.error('Error fetching data:', error));
-    }, []);
+    }, [id]);
     console.log(services)
-    const id = useParams()
+    console.log(services.bgColor)
 
     const handelDrop = () => {
 
@@ -23,12 +24,12 @@ const CardDetails = () => {
         <div>
             <Container>
                 <div onDrop={handelDrop}>
-                    <h1 className='text-center font-bold text-xl my-5'>
-                        Pdf to ppt Converter
+                    <h1 className='text-center font-bold text-2xl my-10 uppercase'>
+                        {services.name}
                     </h1>
                     <div
-                        className='w-[70%] mx-auto bg-amber-500 h-[200px]
-                         md:h-[250px] grid justify-center items-center p-1 border-dashed border-2 rounded-md  border-black  '  >
+                        className={`w-[70%] mx-auto ${services.bgColor}    h-[200px]
+                         md:h-[250px] grid justify-center items-center p-1 border-dashed border-2 rounded-md  border-black  `}  >
                         <div className='flex justify-center items-center'>
                             <div className='h-[100px] w-[100px] mt-3'>
                                 <svg xmlns="http://www.w3.org/2000/svg"
