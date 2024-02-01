@@ -44,8 +44,8 @@ const Services = () => {
                                     {
                                         services.slice(0, 6).map(service => (
                                             <Link
-                                                key={service.id}
-                                                href={`services/${service.id}`}
+                                                key={service._id}
+                                                href={`services/${service._id}`}
                                             >
                                                 <ServicesCard
                                                     image={service.image}
@@ -71,8 +71,8 @@ const Services = () => {
                                 {
                                     services.map(service => (
                                         <Link
-                                            key={service.id}
-                                            href={`services/${service.id}`}
+                                            key={service._id}
+                                            href={`services/${service._id}`}
                                         >
                                             <ServicesCard
                                                 image={service.image}
