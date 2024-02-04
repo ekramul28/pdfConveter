@@ -13,8 +13,11 @@ const Converter = ({ File }) => {
     fileReader.readAsDataURL(File)
     return (
         <div className="flex min-h-screen">
-            <div className="w-3/4">
-                <iframe src={url} width="100%" height="600px"></iframe>
+            <div className="w-3/4  flex justify-center items-center">
+                <div className="w-[400px] h-[200px]">
+                    <iframe src={url} height="400" width="400" className="flex justify-center items-center"></iframe>
+                </div>
+
                 {/* <embed src={url} type="application/pdf" width="100%" height="600px" /> */}
 
                 {/* <Image
