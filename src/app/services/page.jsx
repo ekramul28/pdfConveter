@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 const Services = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3000/api/services')
+        fetch('https://pdf-conveter.vercel.app/api/services')
             .then((res) => res.json())
             .then((data) => setServices(data))
             .catch((error) => console.error('Error fetching data:', error));
