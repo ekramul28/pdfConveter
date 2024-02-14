@@ -1,6 +1,8 @@
 "use client"
 import Link from 'next/link';
 import React from 'react';
+import imageUpload from '../utils/imageUpload';
+import axios from 'axios';
 
 const Register = () => {
     const handelForm = async (e) => {
@@ -10,18 +12,16 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photoURL = form.imgUrl.files[0];
-        const value = { name, email, password, }
-        console.log(value)
 
         try {
-            const res = await fetch('api/register', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(value)
-            });
-            // console.log(res.ok)
+            const image = await imageUpload(photoURL)
+            const imageUrl = image?.data?.display_url
+            const value = { name, email, password, image: imageUrl }
+            console.log(value)
+            const res = await axios('api/register', value);
+            console.log(res)
+
+            console.log(res.ok)
             if (res.ok) {
                 const form = e.target;
                 form.reset()
